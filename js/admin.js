@@ -1,7 +1,6 @@
 function authAdmin() {
     const pin = document.getElementById('adminPin').value;
     
-    // Aapka Strong Security PIN
     const masterPIN = "NZ@Hacker#78699"; 
 
     if (pin === masterPIN) {
