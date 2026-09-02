@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Nawab Zada Hacker control panel</title>
+    <title>Nawab Zada Hacker Control Panel</title>
     <meta name="robots" content="noindex, nofollow">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,19 +37,18 @@
         <div id="adminAuthBox" class="max-w-md mx-auto bg-cyber-card border border-cyber-border rounded-2xl p-8 text-center space-y-4 my-20 glow-red">
             <i class="fa-solid fa-user-secret text-5xl text-cyber-red"></i>
             <h2 class="text-2xl font-black text-white uppercase tracking-wider">Restricted Area</h2>
-            <p class="text-xs text-gray-400">Enter Security PIN to view confidential reports & logs.</p>
+            <p class="text-xs text-gray-400">Enter Security PIN.</p>
             <input type="password" id="adminPin" placeholder="Master Security PIN" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-4 py-3 text-center text-white text-lg tracking-widest focus:outline-none focus:border-cyber-red">
             <button onclick="authAdmin()" class="w-full py-3 bg-cyber-red hover:bg-red-600 font-bold text-white rounded-xl transition">
                 Unlock Dashboard
             </button>
-            <p class="text-[11px] text-gray-500">Default PIN: 1337</p>
         </div>
 
         <div id="adminDashboard" class="hidden space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border pb-6">
                 <div>
-                    <h1 class="text-3xl font-black text-white">Master Control Room</h1>
-                    <p class="text-xs text-cyber-cyan font-mono mt-1">Admin Session: Nawab Zada Hacker</p>
+                    <h1 class="text-3xl font-black text-white">Nawab Zada Control Room</h1>
+                    <p class="text-xs text-cyber-cyan font-mono mt-1">Admin  Nawab Zada Hacker</p>
                 </div>
                 
                 <div class="flex flex-wrap gap-2">
@@ -68,6 +67,11 @@
         </div>
 
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    
+    <script src="js/firebase-database.js"></script>
 
     <script src="js/admin.js"></script>
 </body>
