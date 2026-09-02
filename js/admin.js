@@ -1,6 +1,10 @@
 function authAdmin() {
     const pin = document.getElementById('adminPin').value;
-    if(pin === '1337' || pin === 'nawabzada') {
+    
+    // Aapka Strong Security PIN
+    const masterPIN = "NZ@Hacker#78699"; 
+
+    if (pin === masterPIN) {
         document.getElementById('adminAuthBox').classList.add('hidden');
         document.getElementById('adminDashboard').classList.remove('hidden');
         listenToFirebaseData('All');
@@ -46,6 +50,9 @@ function listenToFirebaseData(filter) {
                     </div>
                 `;
             });
+        }, error => {
+            console.error("Chat Requests Error: ", error);
+            container.innerHTML = '<div class="text-red-400 text-sm col-span-2">Error loading chat requests.</div>';
         });
         return;
     }
@@ -84,13 +91,13 @@ function listenToFirebaseData(filter) {
                     </div>
 
                     <div class="text-xs space-y-1 text-gray-300">
-                        ${r.culpritName !== 'N/A' ? `<p><b>Culprit Name:</b> <span class="text-cyber-red font-semibold">${r.culpritName}</span></p>` : ''}
-                        ${r.culpritPhone !== 'N/A' ? `<p><b>Culprit Phone:</b> ${r.culpritPhone}</p>` : ''}
-                        ${r.culpritCity !== 'N/A' ? `<p><b>Culprit City:</b> ${r.culpritCity}</p>` : ''}
-                        ${r.culpritSocial !== 'N/A' ? `<p><b>Social ID:</b> ${r.culpritSocial}</p>` : ''}
-                        ${r.scamAmount !== 'N/A' ? `<p><b>Scam Amount:</b> PKR ${r.scamAmount}</p>` : ''}
-                        ${r.scammerAccount !== 'N/A' ? `<p><b>Scammer Account:</b> ${r.scammerAccount}</p>` : ''}
-                        ${r.projectType !== 'N/A' ? `<p><b>Project Type:</b> ${r.projectType}</p>` : ''}
+                        ${r.culpritName && r.culpritName !== 'N/A' ? `<p><b>Culprit Name:</b> <span class="text-cyber-red font-semibold">${r.culpritName}</span></p>` : ''}
+                        ${r.culpritPhone && r.culpritPhone !== 'N/A' ? `<p><b>Culprit Phone:</b> ${r.culpritPhone}</p>` : ''}
+                        ${r.culpritCity && r.culpritCity !== 'N/A' ? `<p><b>Culprit City:</b> ${r.culpritCity}</p>` : ''}
+                        ${r.culpritSocial && r.culpritSocial !== 'N/A' ? `<p><b>Social ID:</b> ${r.culpritSocial}</p>` : ''}
+                        ${r.scamAmount && r.scamAmount !== 'N/A' ? `<p><b>Scam Amount:</b> PKR ${r.scamAmount}</p>` : ''}
+                        ${r.scammerAccount && r.scammerAccount !== 'N/A' ? `<p><b>Scammer Account:</b> ${r.scammerAccount}</p>` : ''}
+                        ${r.projectType && r.projectType !== 'N/A' ? `<p><b>Project Type:</b> ${r.projectType}</p>` : ''}
                         
                         <div class="pt-2">
                             <p class="font-bold text-white mb-1">Masla / Details:</p>
@@ -114,12 +121,12 @@ function listenToFirebaseData(filter) {
 }
 
 async function deleteFirestoreDoc(collectionName, docId) {
-    if(confirm("Kya aap waqai is record ko Firebase Database se permanently delete karna chahte hain?")) {
+    if (confirm("Kya aap waqai is record ko Firebase Database se permanently delete karna chahte hain?")) {
         try {
             await db.collection(collectionName).doc(docId).delete();
-            alert("Record deleted successfully!");
-        } catch(err) {
-            console.error(err);
+            alert("Record permanently deleted from Firebase!");
+        } catch (err) {
+            console.error("Delete Error: ", err);
             alert("Error deleting record from Firebase.");
         }
     }
