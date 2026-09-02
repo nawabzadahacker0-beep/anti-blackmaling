@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Cyber Crime Complaint | Nawab Zada Hacker</title>
+    <meta name="description" content="Report any other cyber security issues, hacking threats, impersonation, or fake accounts.">
+    <meta name="keywords" content="Cyber Crime Complaint, Fake Account Removal, Nawab Zada Hacker">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#070b13',
+                            card: '#0e1626',
+                            border: '#1b2a47',
+                            cyan: '#00f3ff',
+                            red: '#ff2a5f',
+                            green: '#00ff88',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="custom-scrollbar">
+
+    <div class="bg-cyber-card border-b border-cyber-border py-2 px-4 text-xs font-semibold flex justify-between items-center text-gray-300">
+        <span class="text-purple-400 font-bold">🛡️ General Cyber Incident Report</span>
+        <div class="text-cyber-cyan font-bold text-center">🛡️ "Aapki Har Cheez Hide Rahay Gi — Aapki Privacy Meri Pehchan"</div>
+        <div><span class="text-gray-400">IP: </span><span id="user-ip-header" class="text-cyber-cyan font-mono">Fetching...</span></div>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-cyber-dark/95 backdrop-blur-md border-b border-cyber-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="p-2.5 bg-cyber-card rounded-xl border border-purple-400 text-purple-400">
+                        <i class="fa-solid fa-circle-nodes text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-black text-white uppercase">Anti-Blackmailing <span class="text-cyber-cyan">Portal</span></h1>
+                        <p class="text-xs text-cyber-red font-semibold uppercase">Developer: Nawab Zada Hacker</p>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex space-x-1 font-medium text-sm">
+                    <a href="index.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Home</a>
+                    <a href="blackmail-report.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Blackmail Report</a>
+                    <a href="scam-report.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Scam Report</a>
+                    <a href="fia-guide.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">FIA Guide</a>
+                    <a href="order-website.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Order Website</a>
+                    <a href="chat-owner.html" class="px-3 py-2 rounded-lg text-cyber-cyan border border-cyber-cyan/30 hover:bg-cyber-cyan/10 transition">Private Chat</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-10">
+        <div class="bg-cyber-card border border-cyber-border rounded-3xl p-6 sm:p-10 space-y-6">
+            <div class="border-b border-cyber-border pb-4">
+                <span class="text-purple-400 text-xs font-black uppercase tracking-widest">Other Cyber Issues</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Other Cyber Incident Report</h2>
+                <p class="text-xs text-cyber-cyan mt-1">🔒 "Aapki har cheez hide rahay gi — Aapki privacy meri pehchan."</p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event, 'Other')" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs text-gray-300 font-semibold block mb-1">Aapka Naam *</label>
+                        <input type="text" name="userName" required class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400">
+                    </div>
+                    <div>
+                        <label class="text-xs text-gray-300 font-semibold block mb-1">Aapka WhatsApp Number *</label>
+                        <input type="tel" name="userWhatsapp" required class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-xs text-gray-300 font-semibold block mb-1">Maslay Ki Tafseel *</label>
+                    <textarea name="details" rows="5" required placeholder="Kya masla pesh aya hai tafseel se likhein..." class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-xs text-gray-300 font-semibold block mb-1">Attachment (Max 10MB)</label>
+                    <input type="file" name="proofFile" accept="image/*,.pdf" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3 py-2 text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-purple-500 file:text-white">
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white font-black text-base rounded-xl transition">
+                    Submit Report
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <div id="successModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-cyber-card border border-cyber-green rounded-2xl max-w-lg w-full p-6 text-center space-y-4 glow-cyan">
+            <div class="w-16 h-16 bg-cyber-green/20 text-cyber-green rounded-full flex items-center justify-center mx-auto text-3xl"><i class="fa-solid fa-circle-check"></i></div>
+            <h3 class="text-xl font-bold text-white">Report Submitted!</h3>
+            <p class="text-gray-300 text-sm">"Apki complain submit ho gai hai. Nawab Zada ki Team aap se jald WhatsApp ya Gmail par rabta karegi."</p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-cyber-green text-cyber-dark font-black rounded-xl">OK</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
