@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nawab Zada Hacker control panel</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#070b13',
+                            card: '#0e1626',
+                            border: '#1b2a47',
+                            cyan: '#00f3ff',
+                            red: '#ff2a5f',
+                            green: '#00ff88',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="custom-scrollbar bg-cyber-dark text-slate-200 min-h-screen p-4 sm:p-8">
+
+    <div class="max-w-7xl mx-auto space-y-6">
+
+        <div id="adminAuthBox" class="max-w-md mx-auto bg-cyber-card border border-cyber-border rounded-2xl p-8 text-center space-y-4 my-20 glow-red">
+            <i class="fa-solid fa-user-secret text-5xl text-cyber-red"></i>
+            <h2 class="text-2xl font-black text-white uppercase tracking-wider">Restricted Area</h2>
+            <p class="text-xs text-gray-400">Enter Security PIN to view confidential reports & logs.</p>
+            <input type="password" id="adminPin" placeholder="Master Security PIN" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-4 py-3 text-center text-white text-lg tracking-widest focus:outline-none focus:border-cyber-red">
+            <button onclick="authAdmin()" class="w-full py-3 bg-cyber-red hover:bg-red-600 font-bold text-white rounded-xl transition">
+                Unlock Dashboard
+            </button>
+            <p class="text-[11px] text-gray-500">Default PIN: 1337</p>
+        </div>
+
+        <div id="adminDashboard" class="hidden space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border pb-6">
+                <div>
+                    <h1 class="text-3xl font-black text-white">Master Control Room</h1>
+                    <p class="text-xs text-cyber-cyan font-mono mt-1">Admin Session: Nawab Zada Hacker</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterAdmin('All')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition font-bold">All</button>
+                    <button onclick="filterAdmin('Blackmailing')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-red text-cyber-red font-bold">Blackmailing</button>
+                    <button onclick="filterAdmin('Scam')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-yellow-400 text-yellow-400 font-bold">Scams</button>
+                    <button onclick="filterAdmin('Order')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-cyan text-cyber-cyan font-bold">Orders</button>
+                    <button onclick="filterAdmin('Other')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-purple-400 text-purple-400 font-bold">Other</button>
+                    <button onclick="filterAdmin('ChatReq')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-pink-500 text-pink-500 font-bold">Chat Requests</button>
+                    <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-xs bg-gray-800 text-gray-300 hover:text-white font-bold"><i class="fa-solid fa-arrow-left mr-1"></i> Public Site</a>
+                </div>
+            </div>
+
+            <div id="adminReportsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
