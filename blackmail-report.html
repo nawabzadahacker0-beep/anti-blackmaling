@@ -34,8 +34,8 @@
 <body class="custom-scrollbar">
 
     <div class="bg-cyber-card border-b border-cyber-border py-2 px-4 text-xs font-semibold flex justify-between items-center text-gray-300">
-        <span class="text-cyber-red font-bold">🚨 Emergency Complaint Submission</span>
-        <div class="text-cyber-cyan font-bold text-center">🛡️ "Aapki Har Cheez Hide Rahay Gi — Aapki Privacy Meri Pehchan"</div>
+        <span class="text-cyber-red font-bold">🚨Emergency Complaint</span>
+        <div class="text-cyber-cyan font-bold text-center">"Apki Har Cheez Hide Rahay Gi — Aapki Privacy Meri Pehchan"</div>
         <div><span class="text-gray-400">IP: </span><span id="user-ip-header" class="text-cyber-cyan font-mono">Fetching...</span></div>
     </div>
 
@@ -69,7 +69,7 @@
             <div class="border-b border-cyber-border pb-4">
                 <span class="text-cyber-red text-xs font-black uppercase tracking-widest">Confidential Red Alert</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Blackmailing & Cyber Harassment Report</h2>
-                <p class="text-xs text-cyber-cyan mt-1">🔒 "Aapki har cheez hide rahay gi — Aapki privacy meri pehchan."</p>
+                <p class="text-xs text-cyber-cyan mt-1">🔒 "Apki hr cheez hide rahay gi — Apki privacy meri pehchan."</p>
             </div>
 
             <div class="bg-cyber-dark/80 p-4 rounded-xl border border-cyber-border text-xs text-gray-300 space-y-1">
@@ -78,14 +78,18 @@
             </div>
 
             <form onsubmit="handleFormSubmit(event, 'Blackmailing')" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                        <label class="text-xs text-gray-300 font-semibold block mb-1">Aapka Naam (Your Name) *</label>
+                        <label class="text-xs text-gray-300 font-semibold block mb-1">Aapka Real Name *</label>
                         <input type="text" name="userName" required placeholder="Ali / Fatima" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyber-cyan">
                     </div>
                     <div>
-                        <label class="text-xs text-gray-300 font-semibold block mb-1">Aapka WhatsApp Number *</label>
+                        <label class="text-xs text-gray-300 font-semibold block mb-1">Active WhatsApp Number *</label>
                         <input type="tel" name="userWhatsapp" required placeholder="03001234567" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyber-cyan">
+                    </div>
+                    <div>
+                        <label class="text-xs text-gray-300 font-semibold block mb-1">Active Gmail Address*</label>
+                        <input type="email" name="userEmail" required placeholder="yourname@gmail.com" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyber-cyan">
                     </div>
                 </div>
 
@@ -102,7 +106,7 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="text-xs text-gray-300 font-semibold block mb-1">Blackmailer Ki City / Shehar</label>
+                        <label class="text-xs text-gray-300 font-semibold block mb-1">Blackmailer Ki City agr pta h to.</label>
                         <input type="text" name="culpritCity" placeholder="Lahore, Karachi, etc." class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyber-cyan">
                     </div>
                     <div>
@@ -117,9 +121,9 @@
                 </div>
 
                 <div>
-                    <label class="text-xs text-gray-300 font-semibold block mb-1">Saboot Upload Karein (PDF ya Photos - Max 10MB)</label>
+                    <label class="text-xs text-gray-300 font-semibold block mb-1">Upload Proof (PDF ya Photos - Max 10MB)</label>
                     <input type="file" name="proofFile" accept="image/*,.pdf" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3 py-2 text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-cyber-cyan file:text-cyber-dark">
-                    <p class="text-[11px] text-yellow-400 mt-1.5">⚠️ Agar proof 10MB se zyada hain toh mazeed files is email par send karein: <span class="text-white font-bold underline">nz.helpcenter@gmail.com</span></p>
+                    <p class="text-[11px] text-yellow-400 mt-1.5">⚠️Agar proof 10MB se zyada hain toh mazeed files is email par send karein: <span class="text-white font-bold underline">nz.helpcenter@gmail.com</span></p>
                 </div>
 
                 <button type="submit" class="w-full py-4 bg-cyber-red hover:bg-red-600 text-white font-black text-base rounded-xl shadow-lg transition">
@@ -138,6 +142,11 @@
             <button onclick="closeSuccessModal()" class="w-full py-3 bg-cyber-green text-cyber-dark font-black rounded-xl">OK</button>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    
+    <script src="js/firebase-database.js"></script>
 
     <script src="js/app.js"></script>
 </body>
