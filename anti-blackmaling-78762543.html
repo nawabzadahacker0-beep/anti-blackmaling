@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nawab Zada Hacker Control Panel</title>
+    <title>Nawab Zada Hacker Admin Control Panel</title>
     <meta name="robots" content="noindex, nofollow">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -34,11 +34,11 @@
 
     <div class="max-w-7xl mx-auto space-y-6">
 
-        <div id="adminAuthBox" class="max-w-md mx-auto bg-cyber-card border border-cyber-border rounded-2xl p-8 text-center space-y-4 my-20 glow-red">
+        <div id="adminAuthBox" class="max-w-md mx-auto bg-cyber-card border-cyber-border rounded-2xl p-8 text-center space-y-4 my-20 glow-red">
             <i class="fa-solid fa-user-secret text-5xl text-cyber-red"></i>
             <h2 class="text-2xl font-black text-white uppercase tracking-wider">Restricted Area</h2>
             <p class="text-xs text-gray-400">Enter Security PIN.</p>
-            <input type="password" id="adminPin" placeholder="Master Security PIN" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-4 py-3 text-center text-white text-lg tracking-widest focus:outline-none focus:border-cyber-red">
+            <input type="password" id="adminPin" placeholder="Master Security PIN" class="w-full bg-cyber-dark border-cyber-border rounded-xl px-4 py-3 text-center text-white text-lg tracking-widest focus:outline-none focus:border-cyber-red">
             <button onclick="authAdmin()" class="w-full py-3 bg-cyber-red hover:bg-red-600 font-bold text-white rounded-xl transition">
                 Unlock Dashboard
             </button>
@@ -48,16 +48,16 @@
             <div class="flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border pb-6">
                 <div>
                     <h1 class="text-3xl font-black text-white">Nawab Zada Control Room</h1>
-                    <p class="text-xs text-cyber-cyan font-mono mt-1">Admin  Nawab Zada Hacker</p>
+                    <p class="text-xs text-cyber-cyan font-mono mt-1">Admin: Nawab Zada Hacker</p>
                 </div>
-                
+
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="filterAdmin('All')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition font-bold">All</button>
-                    <button onclick="filterAdmin('Blackmailing')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-red text-cyber-red font-bold">Blackmailing</button>
-                    <button onclick="filterAdmin('Scam')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-yellow-400 text-yellow-400 font-bold">Scams</button>
-                    <button onclick="filterAdmin('Order')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-cyan text-cyber-cyan font-bold">Orders</button>
-                    <button onclick="filterAdmin('Other')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-purple-400 text-purple-400 font-bold">Other</button>
-                    <button onclick="filterAdmin('ChatReq')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-pink-500 text-pink-500 font-bold">Chat Requests</button>
+                    <button onclick="filterAdmin('All')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-border hover:border-cyber-cyan transition font-bold">All</button>
+                    <button onclick="filterAdmin('Blackmailing')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-red text-cyber-red font-bold">Blackmailing</button>
+                    <button onclick="filterAdmin('Scam')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-yellow-400 text-yellow-400 font-bold">Scams</button>
+                    <button onclick="filterAdmin('Order')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-cyan text-cyber-cyan font-bold">Orders</button>
+                    <button onclick="filterAdmin('Other')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-purple-400 text-purple-400 font-bold">Other</button>
+                    <button onclick="filterAdmin('ChatReq')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-pink-500 text-pink-500 font-bold">Chat Requests</button>
                     <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-xs bg-gray-800 text-gray-300 hover:text-white font-bold"><i class="fa-solid fa-arrow-left mr-1"></i> Public Site</a>
                 </div>
             </div>
@@ -70,9 +70,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    
     <script src="js/firebase-database.js"></script>
-
     <script src="js/admin.js"></script>
 </body>
 </html>
