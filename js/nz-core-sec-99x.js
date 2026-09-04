@@ -37,7 +37,7 @@ function listenToFirebaseData(filter) {
             snapshot.forEach(doc => {
                 const c = doc.data();
                 const docId = doc.id;
-                const status = c.status || 'pending'; // pending, active, blocked
+                const status = c.status || 'pending'; 
 
                 let statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-yellow-400/20 text-yellow-400 uppercase">Pending Approval</span>`;
                 if (status === 'active') {
