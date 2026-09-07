@@ -32,7 +32,7 @@ h1, h2, h3, .font-heading {
 }
 
 code, pre, .font-mono {
-    font-family: 'JetBrains+Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .glow-cyan {
