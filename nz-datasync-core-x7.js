@@ -28,8 +28,7 @@
             cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
             merge: true
         });
-        
     } catch (e) {
-        console.error("Secure Data link initialization error:", e);
+        console.error("Secure Data initialization error:", e);
     }
 })();
