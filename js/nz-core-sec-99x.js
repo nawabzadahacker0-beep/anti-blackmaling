@@ -117,7 +117,7 @@ function listenToFirebaseData(filter) {
         snapshot.forEach(doc => {
             const r = doc.data();
             const docId = doc.id;
-            const hasProof = (r.proofFile && r.proofFile !== 'None' && r.proofFile !== 'N/A');
+            const hasProof = (r.proofFile && r.proofFile !== 'None' && r.proofFile !== 'N/A' && r.proofFile.startsWith('data:'));
 
             container.innerHTML += `
                 <div class="bg-cyber-card border border-cyber-border hover:border-cyber-cyan/40 p-5 rounded-2xl space-y-3 transition">
@@ -133,7 +133,8 @@ function listenToFirebaseData(filter) {
                     <div class="bg-cyber-dark p-3 rounded-xl border border-cyber-border space-y-1 text-xs">
                         <p class="text-white font-bold">👤 User Name: <span class="text-cyber-cyan">${escapeHtml(r.userName || 'N/A')}</span></p>
                         <p class="text-cyber-green font-bold">📱 WhatsApp: <a href="https://wa.me/${r.userWhatsapp}" target="_blank" class="underline">${escapeHtml(r.userWhatsapp || 'N/A')}</a></p>
-                        <p class="text-gray-400 font-mono">🌐 IP Address: <span class="text-yellow-400 font-bold">${escapeHtml(r.ip || 'N/A')}</span></p>
+                        <p class="text-gray-400">📧 Email: <span class="text-white">${escapeHtml(r.userEmail || 'N/A')}</span></p>
+                        <p class="text-gray-400 font-mono">🌐 IP: <span class="text-yellow-400 font-bold">${escapeHtml(r.ip || 'N/A')}</span></p>
                     </div>
 
                     <div class="text-xs space-y-1 text-gray-300">
@@ -153,7 +154,7 @@ function listenToFirebaseData(filter) {
                         <div class="pt-3 border-t border-cyber-border flex items-center justify-between">
                             <span class="text-[11px] text-gray-400">Attached Evidence:</span>
                             ${hasProof ? `
-                                <button onclick="openDocPreview('${encodeURIComponent(r.proofFile)}')" class="px-3 py-1 bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black transition rounded-lg text-xs font-bold flex items-center gap-1.5">
+                                <button onclick="openDocPreview('${docId}')" class="px-3 py-1 bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black transition rounded-lg text-xs font-bold flex items-center gap-1.5">
                                     <i class="fa-solid fa-eye"></i> View Attachment
                                 </button>
                             ` : `<span class="text-gray-500 italic text-xs">No attachment uploaded</span>`}
@@ -174,26 +175,33 @@ function listenToFirebaseData(filter) {
     });
 }
 
-function openDocPreview(encodedFile) {
-    const fileData = decodeURIComponent(encodedFile);
-    const body = document.getElementById('docPreviewBody');
-    const downloadBtn = document.getElementById('docDownloadBtn');
-    
-    downloadBtn.href = fileData;
+async function openDocPreview(docId) {
+    try {
+        const doc = await db.collection("reports").doc(docId).get();
+        if (!doc.exists) return;
+        const fileData = doc.data().proofFile;
+        const body = document.getElementById('docPreviewBody');
+        const downloadBtn = document.getElementById('docDownloadBtn');
+        
+        downloadBtn.href = fileData;
+        downloadBtn.setAttribute('download', doc.data().proofName || 'evidence_proof');
 
-    if (fileData.startsWith('data:image/') || fileData.match(/\.(jpeg|jpg|gif|png|webp)($|\?)/i)) {
-        body.innerHTML = `<img src="${fileData}" class="max-h-[70vh] rounded-lg border border-cyber-border object-contain" alt="Evidence" />`;
-    } else if (fileData.startsWith('data:application/pdf') || fileData.match(/\.pdf($|\?)/i)) {
-        body.innerHTML = `<iframe src="${fileData}" class="w-full h-[65vh] rounded-lg border border-cyber-border"></iframe>`;
-    } else {
-        body.innerHTML = `
-            <div class="p-6 text-center space-y-3">
-                <i class="fa-solid fa-file-lines text-5xl text-cyber-cyan"></i>
-                <p class="text-sm text-gray-300 font-mono break-all">${escapeHtml(fileData)}</p>
-            </div>`;
+        if (fileData.startsWith('data:image/')) {
+            body.innerHTML = `<img src="${fileData}" class="max-h-[70vh] rounded-lg border border-cyber-border object-contain" alt="Evidence" />`;
+        } else if (fileData.startsWith('data:application/pdf')) {
+            body.innerHTML = `<iframe src="${fileData}" class="w-full h-[65vh] rounded-lg border border-cyber-border"></iframe>`;
+        } else {
+            body.innerHTML = `
+                <div class="p-6 text-center space-y-3">
+                    <i class="fa-solid fa-file-lines text-5xl text-cyber-cyan"></i>
+                    <p class="text-sm text-gray-300 font-mono break-all">${escapeHtml(doc.data().proofName || 'Attached Document')}</p>
+                </div>`;
+        }
+
+        document.getElementById('docPreviewModal').classList.remove('hidden');
+    } catch (e) {
+        alert("Attachment open krne me error aya.");
     }
-
-    document.getElementById('docPreviewModal').classList.remove('hidden');
 }
 
 function closeDocPreview() {
@@ -240,7 +248,7 @@ function openLiveChatTerminal(docId, name, whatsapp, ip) {
                 msgBox.innerHTML += `
                     <div class="flex flex-col ${isAdmin ? 'items-end' : 'items-start'}">
                         <div class="max-w-[75%] p-3 rounded-xl ${isAdmin ? 'bg-cyber-cyan/20 border border-cyber-cyan/40 text-cyber-cyan' : 'bg-cyber-card border border-cyber-border text-gray-200'}">
-                            <p class="text-[10px] font-bold text-gray-400 mb-0.5">${isAdmin ? 'Nawab Zada (Admin)' : '👤 Client'}</p>
+                            <p class="text-[10px] font-bold text-gray-400 mb-0.5">${isAdmin ? '🛡️ Nawab Zada (Admin)' : '👤 Client'}</p>
                             <p class="text-xs leading-relaxed break-words">${escapeHtml(m.text)}</p>
                         </div>
                     </div>
@@ -284,7 +292,7 @@ async function changeChatStatus(docId, newStatus) {
 
 async function blockCurrentChat() {
     if (!activeChatId) return;
-    if (confirm("Kya aap waqai is user ko block karna chahte hain?")) {
+    if (confirm("Kya aap is user ko block karna chahte hain?")) {
         await changeChatStatus(activeChatId, 'blocked');
     }
 }
@@ -299,7 +307,7 @@ function closeLiveChatModal() {
 }
 
 async function deleteFirestoreDoc(collectionName, docId) {
-    if (confirm("Kya aap waqai is record ko Firebase se permanently delete karna chahte hain?")) {
+    if (confirm("Kya aap is record ko permanently delete karna chahte hain?")) {
         try {
             await db.collection(collectionName).doc(docId).delete();
         } catch (err) {
