@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,7 @@
                             cyan: '#00f3ff',
                             red: '#ff2a5f',
                             green: '#00ff88',
+                            purple: '#9d4edd',
                         }
                     }
                 }
@@ -29,79 +30,87 @@
         }
     </script>
 </head>
-<body class="custom-scrollbar">
+<body class="custom-scrollbar bg-cyber-dark text-slate-200">
 
-    <div class="bg-cyber-card border-b border-cyber-border py-2 px-4 text-xs font-semibold flex justify-between items-center text-gray-300">
-        <span class="text-purple-400 font-bold">General Cyber Incident Report</span>
+    <div class="bg-cyber-card border-b border-cyber-border py-2 px-4 text-xs font-semibold flex-col sm:flex-row-reverse justify-between items-center text-gray-300 gap-2">
+        <span class="text-cyber-purple font-bold">General Cyber Incident Report</span>
+        <div class="hidden sm:block text-[11px] text-gray-400" id="user-ip-header">Protected</div>
+    </div> 
 
     <header class="sticky top-0 z-40 bg-cyber-dark/95 backdrop-blur-md border-b border-cyber-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center space-x-3">
-                    <div class="p-2.5 bg-cyber-card rounded-xl border border-purple-400 text-purple-400">
-                        <i class="fa-solid fa-circle-nodes text-2xl"></i>
-                    </div>
+            <div class="flex items-center justify-between h-20 flex-row-reverse">
+                <a href="index.html" class="flex items-center gap-3">
                     <div>
                         <h1 class="text-xl font-black text-white uppercase">Anti-Blackmailing <span class="text-cyber-cyan">site</span></h1>
                         <p class="text-xs text-cyber-red font-semibold uppercase">Developer Nawab Zada Hacker</p>
                     </div>
+                    <div class="p-2.5 bg-cyber-card rounded-xl border-cyber-purple text-cyber-purple">
+                        <i class="fa-solid fa-circle-nodes text-2xl"></i>
+                    </div>
                 </a>
 
-                <nav class="hidden md:flex space-x-1 font-medium text-sm">
-                    <a href="index.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Home</a>
-                    <a href="blackmail-report.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Blackmailing complain</a>
-                    <a href="scam-report.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Scam complain</a>
-                    <a href="fia-guide.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">FIA complain Guide</a>
+                <nav class="hidden md:flex items-center gap-1 font-medium text-sm">
+                    <a href="chat-owner.html" class="px-3 py-2 rounded-lg text-cyber-cyan border-cyber-cyan/30 hover:bg-cyber-cyan/10 transition">Private Chat</a>
                     <a href="order-website.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Website/Toolkit Order</a>
-                    <a href="chat-owner.html" class="px-3 py-2 rounded-lg text-cyber-cyan border border-cyber-cyan/30 hover:bg-cyber-cyan/10 transition">Private Chat</a>
+                    <a href="fia-guide.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">FIA complain Guide</a>
+                    <a href="scam-report.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Scam complain</a>
+                    <a href="blackmail-report.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Blackmailing complain</a>
+                    <a href="index.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-cyber-card transition">Home</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <main class="max-w-3xl mx-auto px-4 py-10">
-        <div class="bg-cyber-card border border-cyber-border rounded-3xl p-6 sm:p-10 space-y-6">
-            <div class="border-b border-cyber-border pb-4">
-                <span class="text-purple-400 text-xs font-black uppercase tracking-widest">Other Cyber Issues</span>
+        <div class="bg-cyber-card border-cyber-border rounded-3xl p-6 sm:p-10 space-y-6">
+            <div class="border-b border-cyber-border pb-4 text-right">
+                <span class="text-cyber-purple text-xs font-black uppercase tracking-widest">Other Cyber Issues</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Other Cyber Incident Report</h2>
-                <p class="text-xs text-cyber-cyan mt-1">🔒 "Your information will remain completely confidential."</p>
+                <p class="text-xs text-cyber-cyan mt-1">🔒 "Apki information 100% confidential rahegi."</p>
             </div>
 
-            <form onsubmit="handleFormSubmit(event, 'Other')" class="space-y-4">
+            <form onsubmit="handleFormSubmit(event, 'Other')" class="space-y-4 text-right">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                         <label class="text-xs text-gray-300 font-semibold block mb-1">Your Full Name *</label>
-                        <input type="text" name="userName" required class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400">
+                        <input type="text" name="userName" required class="w-full bg-cyber-dark border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white text-right focus:outline-none focus:border-cyber-purple">
                     </div>
                     <div>
                         <label class="text-xs text-gray-300 font-semibold block mb-1">WhatsApp Number *</label>
-                        <input type="tel" name="userWhatsapp" required class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400">
+                        <input type="tel" name="userWhatsapp" required class="w-full bg-cyber-dark border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white text-right focus:outline-none focus:border-cyber-purple">
                     </div>
                     <div>
                         <label class="text-xs text-gray-300 font-semibold block mb-1">Gmail Address *</label>
-                        <input type="email" name="userEmail" required placeholder="yourname@gmail.com" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400">
+                        <input type="email" name="userEmail" required placeholder="yourname@gmail.com" class="w-full bg-cyber-dark border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white text-right focus:outline-none focus:border-cyber-purple">
                     </div>
                 </div>
 
                 <div>
                     <label class="text-xs text-gray-300 font-semibold block mb-1">Incident Details *</label>
-                    <textarea name="details" rows="5" required placeholder="Explain the issue in detail..." class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-purple-400"></textarea>
+                    <textarea name="details" rows="5" required placeholder="Explain the issue in detail..." class="w-full bg-cyber-dark border-cyber-border rounded-xl px-3.5 py-3 text-sm text-white text-right focus:outline-none focus:border-cyber-purple"></textarea>
                 </div>
 
                 <div>
                     <label class="text-xs text-gray-300 font-semibold block mb-1">Attachment (Max 1.5MB)</label>
-                    <input type="file" name="proofFile" accept="image/*,.pdf" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-3 py-2 text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-purple-500 file:text-white">
+                    <input type="file" name="proofFile" accept="image/*,.pdf" class="w-full bg-cyber-dark border-cyber-border rounded-xl px-3 py-2 text-xs text-gray-400 file:ml-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-cyber-purple file:text-white">
                 </div>
 
-                <button type="submit" class="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white font-black text-base rounded-xl transition">
+                <button type="submit" class="w-full py-4 bg-cyber-purple hover:bg-purple-700 text-white font-black text-base rounded-xl transition">
                     Submit Report
                 </button>
             </form>
         </div>
     </main>
 
+    <footer class="mt-16 bg-cyber-card border-t border-cyber-border py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-gray-500">
+            &copy; <span id="year">2026</span> Anti-Blackmailing site by <span class="text-cyber-cyan font-bold">Nawab Zada Hacker</span>.
+        </div>
+    </footer>
+
     <div id="successModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-cyber-card border border-cyber-green rounded-2xl max-w-lg w-full p-6 text-center space-y-4 glow-cyan">
+        <div class="bg-cyber-card border-cyber-green rounded-2xl max-w-lg w-full p-6 text-center space-y-4">
             <div class="w-16 h-16 bg-cyber-green/20 text-cyber-green rounded-full flex items-center justify-center mx-auto text-3xl"><i class="fa-solid fa-circle-check"></i></div>
             <h3 class="text-xl font-bold text-white">Report Submitted!</h3>
             <p class="text-gray-300 text-sm">Your report has been submitted. The Nawab Zada Team will contact you soon.</p>
@@ -113,5 +122,11 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/nz-datasync-core-x7.js"></script>
     <script src="js/nz-client-engine-v8.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yr = document.getElementById('year');
+        if (yr) yr.innerText = new Date().getFullYear();
+    });
+    </script>
 </body>
 </html>
