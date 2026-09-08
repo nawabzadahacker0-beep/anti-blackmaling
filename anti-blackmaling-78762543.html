@@ -36,12 +36,12 @@
     <div class="max-w-7xl mx-auto space-y-6">
 
         <div id="adminAuthBox" class="max-w-md mx-auto bg-cyber-card border border-cyber-border rounded-2xl p-8 text-center space-y-4 my-20 shadow-2xl shadow-red-950/40">
-            <div class="w-20 h-20 mx-auto bg-cyber-red/10 rounded-full flex items-center justify-center border border-cyber-red/30">
+            <div class="w-20 h-20 mx-auto bg-cyber-red/10 rounded-full flex items-center justify-center border-cyber-red/30">
                 <i class="fa-solid fa-user-shield text-4xl text-cyber-red"></i>
             </div>
             <h2 class="text-2xl font-black text-white uppercase tracking-wider">Secure Cyber Vault</h2>
             <p class="text-xs text-gray-400">Enter admin panel password.</p>
-            <input type="password" id="adminPin" placeholder="MASTER PIN" class="w-full bg-cyber-dark border-cyber-border rounded-xl px-4 py-3 text-center text-white text-lg tracking-widest focus:outline-none focus:border-cyber-red">
+            <input type="password" id="adminPin" placeholder="MASTER PIN" class="w-full bg-cyber-dark border border-cyber-border rounded-xl px-4 py-3 text-center text-white text-lg tracking-widest focus:outline-none focus:border-cyber-red">
             <button onclick="authAdmin()" class="w-full py-3 bg-cyber-red hover:bg-red-600 font-bold text-white rounded-xl shadow-lg transition">
                 <i class="fa-solid fa-unlock-keyhole mr-2"></i> Unlock Terminal
             </button>
@@ -58,9 +58,9 @@
                 </div>
 
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="filterAdmin('All')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-border hover:border-cyber-cyan transition font-bold text-white">All Reports</button>
-                    <button onclick="filterAdmin('Blackmailing')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-red text-cyber-red font-bold">Blackmailing</button>
-                    <button onclick="filterAdmin('Scam')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-yellow-400 text-yellow-400 font-bold">Scams</button>
+                    <button onclick="filterAdmin('All')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition font-bold text-white">All Reports</button>
+                    <button onclick="filterAdmin('Blackmailing')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-red text-cyber-red font-bold">Blackmailing</button>
+                    <button onclick="filterAdmin('Scam')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-yellow-400 text-yellow-400 font-bold">Scams</button>
                     <button onclick="filterAdmin('Order')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-cyan text-cyber-cyan font-bold">Orders</button>
                     <button onclick="filterAdmin('Other')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-cyber-purple text-cyber-purple font-bold">Other</button>
                     <button onclick="filterAdmin('ChatReq')" class="px-3.5 py-1.5 rounded-lg text-xs bg-cyber-card border-pink-500 text-pink-400 font-bold relative">
@@ -76,7 +76,7 @@
     </div>
 
     <div id="docPreviewModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-cyber-card border-cyber-border rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex-col max-h-[90vh]">
+        <div class="bg-cyber-card border border-cyber-border rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex-col max-h-[90vh]">
             <div class="flex justify-between items-center p-4 border-b border-cyber-border bg-cyber-dark">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-file-shield text-cyber-cyan"></i> Document / Proof Preview
@@ -86,14 +86,14 @@
             <div id="docPreviewBody" class="p-4 overflow-auto flex items-center justify-center flex-1 bg-black/40">
             </div>
             <div class="p-3 border-t border-cyber-border bg-cyber-dark flex justify-end gap-2">
-                <a id="docDownloadBtn" href="#" target="_blank" download class="px-4 py-1.5 bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan text-xs font-bold rounded-lg hover:bg-cyber-cyan hover:text-black transition">Download Attachment</a>
+                <a id="docDownloadBtn" href="#" target="_blank" download class="px-4 py-1.5 bg-cyber-cyan/20 border-cyber-cyan text-cyber-cyan text-xs font-bold rounded-lg hover:bg-cyber-cyan hover:text-black transition">Download Attachment</a>
                 <button onclick="closeDocPreview()" class="px-4 py-1.5 bg-gray-700 text-xs font-bold text-white rounded-lg">Close</button>
             </div>
         </div>
     </div>
 
     <div id="liveChatModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-cyber-card border border-cyber-cyan/50 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex-col h-[85vh]">
+        <div class="bg-cyber-card border-cyber-cyan/50 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex-col h-[85vh]">
             <div class="flex justify-between items-center p-4 border-b border-cyber-border bg-cyber-dark">
                 <div>
                     <h3 id="chatTargetName" class="text-sm font-bold text-white">Encrypted Chat</h3>
@@ -121,7 +121,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script src="js/firebase-config.js"></script> <!-- YE ADD KIYA -->
-    <script src="js/admin.js"></script> <!-- YE ADD KIYA - YEHI MISS THA -->
+    <script src="js/nz-datasync-core-x7.js"></script> 
+    <script src="js/nz-core-sec-99x.js"></script> 
 </body>
 </html>
